@@ -1,0 +1,31 @@
+/*
+题目：输入两个正整数m和n，求其最大公约数和最小公倍数。
+最大公约数，先求出较小数字所有的约数，找出相同的且最大的约数；
+最小公倍数：m*n/最大公约数
+
+ */
+
+import java.util.Scanner;
+
+public class Test09 {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        System.out.print("请输入第一个数字：");
+        int m = sc.nextInt();
+        System.out.print("请输入第二个数字：");
+        int n = sc.nextInt();
+
+        //1、确定大小数
+        int small = m < n ? m : n;
+
+        //2、倒叙开始求最大公约数
+        for (int i = small;i>=1;i--){
+            if(m%i==0&n%i==0){
+                System.out.println("最大公约数是"+i);
+                System.out.println("最小公倍数是"+m*n/i);
+                break;
+            }
+        }
+    }
+}
